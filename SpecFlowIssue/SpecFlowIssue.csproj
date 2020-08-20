@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net472</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="SpecFlow.NUnit.Runners" Version="3.3.74" />
+    </ItemGroup>
+
+    <Target Name="CleanFeatureCsFiles" BeforeTargets="BeforeUpdateFeatureFilesInProject;Clean">
+        <ItemGroup>
+            <FilesToDelete Include="**\*.feature.cs" />
+        </ItemGroup>
+        <Delete Files="@(FilesToDelete)" />
+    </Target>
+
+</Project>
